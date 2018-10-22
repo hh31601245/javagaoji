@@ -17,6 +17,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import model.URL;
 
 public class FrmLoad extends JDialog implements ActionListener{
 	private JPanel toolBar=new JPanel();
@@ -62,13 +63,14 @@ public class FrmLoad extends JDialog implements ActionListener{
 		    jf.showOpenDialog(this);
 		    File f=jf.getSelectedFile();
 		    String s=f.getAbsolutePath();
-		    JOptionPane.showMessageDialog(this, s,"123",JOptionPane.WARNING_MESSAGE);
+		    this.edturl.setText(s);
 		}else if(e.getSource()==this.btnOk)
 		{
-			
+			URL.WordURL=edturl.getText();
+			this.setVisible(false);
 		}else if(e.getSource()==this.btnCancel)
 		{
-			
+			System.exit(0);
 		}
 	}
 	public static void main(String[] args)
