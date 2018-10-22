@@ -4,13 +4,17 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -49,5 +53,26 @@ public class FrmLoad extends JDialog implements ActionListener{
 		}
 				
 				);
+	}
+	public void actionPerformed(ActionEvent e)
+	{
+		if(e.getSource()==this.btnLoad)
+		{
+		    JFileChooser jf=new JFileChooser();
+		    jf.showOpenDialog(this);
+		    File f=jf.getSelectedFile();
+		    String s=f.getAbsolutePath();
+		    JOptionPane.showMessageDialog(this, s,"123",JOptionPane.WARNING_MESSAGE);
+		}else if(e.getSource()==this.btnOk)
+		{
+			
+		}else if(e.getSource()==this.btnCancel)
+		{
+			
+		}
+	}
+	public static void main(String[] args)
+	{
+		
 	}
 }
